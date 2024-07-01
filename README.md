@@ -40,3 +40,12 @@ Springs are nice when it comes to motion.
 You want to make sure your animations have spring motions to make them feel real.
 
 Don't hesistate to play around with damping and stiffness to get the best result.
+
+# Layout animations
+
+If needing to animate the layout e.g. size or positioning, you can set `layout` to true.
+
+- Both parent and all children need layout animation set to true.
+- Children need it too, to avoid animating in the wrong way.
+- Parent and children need the same transition values to look in sync.
+- Parent needs to make sure the positioning of children is ok so that during layout animation they don't look jarring.
