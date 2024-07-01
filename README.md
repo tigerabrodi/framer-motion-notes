@@ -49,3 +49,11 @@ If needing to animate the layout e.g. size or positioning, you can set `layout` 
 - Children need it too, to avoid animating in the wrong way.
 - Parent and children need the same transition values to look in sync.
 - Parent needs to make sure the positioning of children is ok so that during layout animation they don't look jarring.
+
+# Shared Layout Animations
+
+- `layoutId` with the same value will cause framer motion to trigger optical illusion that it's a single element animating.
+- For example, underline under tabs.
+- Same `layoutId` will animate the same optical "element" throughout the app, even if different components.
+- You may find weird quirks with the animation, such as intial styles you want applied that flicker for a split second. To solve this, you can use `animate` and set initial animation to false. But this isn't recommended because we don't need to animate the "core" styles we initially want applied, so use `initial` as object and set your styles there.
+- If you're using positioning, it's important to understand that by natural, the stacking context happens in the order of the DOM if no zIndex is set. So you may see unexpected behavior if you don't account for this when using position.
