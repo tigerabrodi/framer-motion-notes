@@ -64,8 +64,17 @@ If needing to animate the layout e.g. size or positioning, you can set `layout` 
 - No need to set layout prop if layoutId is set
 - layoutId can not be null, considered falsy value
 - use a unique value for layoutId
+
+---
+
 - Make sure to count each layoutId in a way where they're globally unique but also ranked in their own order
 - For example, in container 1 you may have a list of items, but if they move to container 2, they should be in the same order
 - So the ones moving from container 1 should still be in their order
 - One example is to keep track of the order in container 1, and then start from the length of the end of container 1
 - layoutId and key must both be unique, key can't be index while layoutId is unique
+
+---
+
+- If animating multiple items at a time, use LayoutGroup component from framer motion
+- tells framer motion that all layoutId items may be dependent on each other and is part of the same group animation
+- this is so that the layoutId animations do not happen independently, but rather as a group
