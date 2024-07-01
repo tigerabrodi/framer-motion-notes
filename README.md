@@ -57,3 +57,15 @@ If needing to animate the layout e.g. size or positioning, you can set `layout` 
 - Same `layoutId` will animate the same optical "element" throughout the app, even if different components.
 - You may find weird quirks with the animation, such as intial styles you want applied that flicker for a split second. To solve this, you can use `animate` and set initial animation to false. But this isn't recommended because we don't need to animate the "core" styles we initially want applied, so use `initial` as object and set your styles there.
 - If you're using positioning, it's important to understand that by natural, the stacking context happens in the order of the DOM if no zIndex is set. So you may see unexpected behavior if you don't account for this when using position.
+
+# Layout Groups
+
+- layoutId used to animate different pieces of items between different containers.
+- No need to set layout prop if layoutId is set
+- layoutId can not be null, considered falsy value
+- use a unique value for layoutId
+- Make sure to count each layoutId in a way where they're globally unique but also ranked in their own order
+- For example, in container 1 you may have a list of items, but if they move to container 2, they should be in the same order
+- So the ones moving from container 1 should still be in their order
+- One example is to keep track of the order in container 1, and then start from the length of the end of container 1
+- layoutId and key must both be unique, key can't be index while layoutId is unique
