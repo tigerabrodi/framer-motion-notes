@@ -63,6 +63,7 @@ If needing to animate the layout e.g. size or positioning, you can set `layout` 
 - layoutId used to animate different pieces of items between different containers.
 - No need to set layout prop if layoutId is set
 - layoutId can not be null, considered falsy value
+- By that, i mean 0
 - use a unique value for layoutId
 
 ---
